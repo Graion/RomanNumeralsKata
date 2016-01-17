@@ -22,5 +22,13 @@ public class RomanNumerals {
 		assertEquals(new RomanNumeral("D").toArabic(), 500);
 		assertEquals(new RomanNumeral("M").toArabic(), 1000);
 	}
+	
+	@Test
+	public void testRomanBasicAdditionToArabic() {
+		assertEquals(new RomanNumeral("II").toArabic(), 2);
+		assertEquals(new RomanNumeral("XXX").toArabic(), 30);
+		assertEquals(new RomanNumeral("CC").toArabic(), 200);
+		assertEquals(new RomanNumeral("MMM").toArabic(), 3000);
+	}
 
 }

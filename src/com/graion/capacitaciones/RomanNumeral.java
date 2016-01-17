@@ -20,7 +20,14 @@ public class RomanNumeral {
 	}
 
 	public int toArabic() {
-		return this.romanArabicTable.get(this.numeral);
+		Integer result = this.romanArabicTable.get(this.numeral);
+		if (result == null) {
+			String head = this.numeral.substring(0, 1);
+			String tail = this.numeral.substring(1, this.numeral.length());
+			return new RomanNumeral(head).toArabic() + new RomanNumeral(tail).toArabic();
+		} else {
+			return result;
+		}
 	}
 	
 }
