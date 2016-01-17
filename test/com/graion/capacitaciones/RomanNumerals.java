@@ -60,5 +60,10 @@ public class RomanNumerals {
 	public void testEmptyStringToArabicZero() {
 		assertEquals(new RomanNumeral("").toArabic(), 0);
 	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void testInvalidNumeralShouldThrowException() {
+		new RomanNumeral(" ");
+	}
 
 }

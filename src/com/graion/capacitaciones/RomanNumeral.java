@@ -1,28 +1,16 @@
 package com.graion.capacitaciones;
 
-import java.util.Hashtable;
-
 public class RomanNumeral {
 
 	private String numeral;
-	private Hashtable<String, Integer> romanArabicTable;
+	private RomanNumeralTable romanArabicTable;
 
 	public RomanNumeral(String numeral) {
-		this.numeral = numeral;
-		this.romanArabicTable = new Hashtable<String, Integer>();
-		this.romanArabicTable.put("I", 1);
-		this.romanArabicTable.put("IV", 4);
-		this.romanArabicTable.put("V", 5);
-		this.romanArabicTable.put("IX", 9);
-		this.romanArabicTable.put("X", 10);
-		this.romanArabicTable.put("XL", 40);
-		this.romanArabicTable.put("L", 50);
-		this.romanArabicTable.put("XC", 90);
-		this.romanArabicTable.put("C", 100);
-		this.romanArabicTable.put("CD", 400);
-		this.romanArabicTable.put("D", 500);
-		this.romanArabicTable.put("CM", 900);
-		this.romanArabicTable.put("M", 1000);
+		this.romanArabicTable = new RomanNumeralTable();
+		if (numeral.length() == 1 && !romanArabicTable.containsKey(numeral))
+			throw new IllegalArgumentException(numeral);
+		else
+			this.numeral = numeral;
 	}
 
 	public int toArabic() {
