@@ -26,8 +26,11 @@ public class RomanNumeral {
 	}
 
 	public int toArabic() {
-		Integer result = this.romanArabicTable.get(this.numeral);
-		if (result == null) {
+		if (this.numeral.isEmpty())
+			return 0;
+		else if (this.romanArabicTable.containsKey(this.numeral))
+			return this.romanArabicTable.get(this.numeral);
+		else {
 			int headLength = 1;
 			if (this.romanArabicTable.containsKey(this.numeral.substring(0, 2))) {
 				headLength = 2;
@@ -35,8 +38,6 @@ public class RomanNumeral {
 			String head = this.numeral.substring(0, headLength);
 			String tail = this.numeral.substring(headLength, this.numeral.length());
 			return new RomanNumeral(head).toArabic() + new RomanNumeral(tail).toArabic();
-		} else {
-			return result;
 		}
 	}
 	

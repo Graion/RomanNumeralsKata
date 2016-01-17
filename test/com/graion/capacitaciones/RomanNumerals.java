@@ -55,5 +55,10 @@ public class RomanNumerals {
 		assertEquals(new RomanNumeral("MCDXIV").toArabic(), 1414);
 		assertEquals(new RomanNumeral("MCMLIX").toArabic(), 1959);
 	}
+	
+	@Test
+	public void testEmptyStringToArabicZero() {
+		assertEquals(new RomanNumeral("").toArabic(), 0);
+	}
 
 }
