@@ -3,8 +3,8 @@ package com.graion.capacitaciones;
 import java.util.Hashtable;
 
 @SuppressWarnings("serial")
-public class RomanNumeralTable extends Hashtable<String, Integer> {
-	public RomanNumeralTable() {
+public class RomanToArabicTable extends Hashtable<String, Integer> {
+	public RomanToArabicTable() {
 		this.put("I", 1);
 		this.put("IV", 4);
 		this.put("V", 5);

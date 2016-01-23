@@ -4,17 +4,16 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class RomanNumerals {
+public class RomanToArabic {
 
 	@Test
-	public void testRomanOneToArabic() {
+	public void testRomanOne() {
 		RomanNumeral romanOne = new RomanNumeral("I");
 		assertEquals(romanOne.toArabic(), 1);
 	}
 	
 	@Test
-	public void testRomanBasicNumeralsToArabic() {
-		assertEquals(new RomanNumeral("I").toArabic(), 1);
+	public void testRomanBasicNumerals() {
 		assertEquals(new RomanNumeral("V").toArabic(), 5);
 		assertEquals(new RomanNumeral("X").toArabic(), 10);
 		assertEquals(new RomanNumeral("L").toArabic(), 50);
@@ -24,7 +23,7 @@ public class RomanNumerals {
 	}
 	
 	@Test
-	public void testRomanBasicAdditionToArabic() {
+	public void testRomanBasicAddition() {
 		assertEquals(new RomanNumeral("II").toArabic(), 2);
 		assertEquals(new RomanNumeral("XXX").toArabic(), 30);
 		assertEquals(new RomanNumeral("CC").toArabic(), 200);
@@ -34,7 +33,7 @@ public class RomanNumerals {
 	}
 	
 	@Test
-	public void testRomanBasicSubstractionToArabic() {
+	public void testRomanBasicSubstraction() {
 		assertEquals(new RomanNumeral("IV").toArabic(), 4);
 		assertEquals(new RomanNumeral("IX").toArabic(), 9);
 		assertEquals(new RomanNumeral("XL").toArabic(), 40);
@@ -50,15 +49,16 @@ public class RomanNumerals {
 	}
 	
 	@Test
-	public void testRomanComplexSubstractionToArabic() {
+	public void testRomanComplexSubstraction() {
 		assertEquals(new RomanNumeral("DXCIX").toArabic(), 599);
 		assertEquals(new RomanNumeral("MCDXIV").toArabic(), 1414);
 		assertEquals(new RomanNumeral("MCMLIX").toArabic(), 1959);
 	}
 	
 	@Test
-	public void testEmptyStringToArabicZero() {
+	public void testRomanBorderCases() {
 		assertEquals(new RomanNumeral("").toArabic(), 0);
+		assertEquals(new RomanNumeral("MMCMXCIX").toArabic(), 2999);
 	}
 	
 	@Test(expected=IllegalArgumentException.class)

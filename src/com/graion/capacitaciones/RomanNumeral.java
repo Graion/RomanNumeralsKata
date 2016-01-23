@@ -3,10 +3,10 @@ package com.graion.capacitaciones;
 public class RomanNumeral {
 
 	private String numeral;
-	private RomanNumeralTable romanArabicTable;
+	private RomanToArabicTable romanArabicTable;
 
 	public RomanNumeral(String numeral) {
-		this.romanArabicTable = new RomanNumeralTable();
+		this.romanArabicTable = new RomanToArabicTable();
 		if (numeral.length() == 1 && !romanArabicTable.containsKey(numeral))
 			throw new IllegalArgumentException(numeral);
 		else
@@ -27,6 +27,36 @@ public class RomanNumeral {
 			String tail = this.numeral.substring(headLength, this.numeral.length());
 			return new RomanNumeral(head).toArabic() + new RomanNumeral(tail).toArabic();
 		}
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((numeral == null) ? 0 : numeral.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		RomanNumeral other = (RomanNumeral) obj;
+		if (numeral == null) {
+			if (other.numeral != null)
+				return false;
+		} else if (!numeral.equals(other.numeral))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "RomanNumeral [numeral=" + numeral + "]";
 	}
 	
 }
