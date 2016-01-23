@@ -31,5 +31,22 @@ public class ArabicToRoman {
 		assertEquals(arabicToRoman.convert(1111), new RomanNumeral("MCXI"));
 		assertEquals(arabicToRoman.convert(1666), new RomanNumeral("MDCLXVI"));
 	}
-
+	
+	@Test
+	public void testRomanComplexSubstraction() {
+		assertEquals(arabicToRoman.convert(599), new RomanNumeral("DXCIX"));
+		assertEquals(arabicToRoman.convert(1414), new RomanNumeral("MCDXIV"));
+		assertEquals(arabicToRoman.convert(1959), new RomanNumeral("MCMLIX"));
+	}
+	
+	@Test
+	public void testRomanBorderCases() {
+		assertEquals(arabicToRoman.convert(0), new RomanNumeral(""));
+		assertEquals(arabicToRoman.convert(2999), new RomanNumeral("MMCMXCIX"));
+	}
+	
+	@Test(expected=ConversionLimitReachedException.class)
+	public void testConversionLimitShouldThrowException() {
+		arabicToRoman.convert(3001);
+	}
 }

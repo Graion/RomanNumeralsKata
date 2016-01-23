@@ -5,6 +5,9 @@ public class ArabicToRomanConverter {
 	private ArabicToRomanTable arabicToRomanTable = new ArabicToRomanTable();
 
 	public RomanNumeral convert(int number) {
+		if (number > 3000) {
+			throw new ConversionLimitReachedException();
+		}
 		StringBuilder roman = new StringBuilder();
 		for (Integer arabic : arabicToRomanTable.keySet()) {
 			while (number >= arabic) {
